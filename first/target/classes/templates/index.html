@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Skill Profile Input</title>
+    
+    <link rel="stylesheet" href="https://jsdelivr.net">
+</head>
+<body class="bg-light p-5">
+
+    <div class="container bg-white p-4 rounded shadow" style="max-width: 600px;">
+        <h2 class="text-primary text-center mb-4">Student Skill Gap Analyzer</h2>
+        
+        
+        <form th:action="@{/analyze}" th:object="${profile}" method="post">
+            
+            
+            <div class="mb-3">
+                <label for="studentName" class="form-label"><strong>மாணவர் பெயர் (Student Name):</strong></label>
+                <input type="text" th:field="*{studentName}" class="form-control" id="studentName" placeholder="உங்கள் பெயரை உள்ளிடவும்" required>
+            </div>
+
+            
+            <div class="mb-3">
+                <label for="targetRole" class="form-label"><strong>இலக்கு வேலை (Target Role):</strong></label>
+                <select th:field="*{targetRole}" class="form-select" id="targetRole">
+                    <option value="Student Skill Gap Analyzer Developer">Student Skill Gap Analyzer Developer</option>
+                </select>
+            </div>
+
+            
+            <div class="mb-4">
+                <label class="form-label"><strong>உங்களுக்கு தெரிந்த திறன்களை டிக் செய்யவும் (Select Your Skills):</strong></label>
+                
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" th:value="'Java 17'" th:field="*{currentSkills}" id="skill1">
+                    <label class="form-check-input-label" for="skill1">&nbsp;Java 17</label>
+                </div>
+                
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" th:value="'Spring Boot'" th:field="*{currentSkills}" id="skill2">
+                    <label class="form-check-input-label" for="skill2">&nbsp;Spring Boot</label>
+                </div>
+                
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" th:value="'MySQL'" th:field="*{currentSkills}" id="skill3">
+                    <label class="form-check-input-label" for="skill3">&nbsp;MySQL</label>
+                </div>
+                
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" th:value="'Thymeleaf'" th:field="*{currentSkills}" id="skill4">
+                    <label class="form-check-input-label" for="skill4">&nbsp;Thymeleaf</label>
+                </div>
+                
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" th:value="'Bootstrap'" th:field="*{currentSkills}" id="skill5">
+                    <label class="form-check-input-label" for="skill5">&nbsp;Bootstrap</label>
+                </div>
+            </div>
+
+            
+            <button type="submit" class="btn btn-primary w-100">Run Assessment (பரிசோதிக்கவும்)</button>
+        </form>
+    </div>
+
+</body>
+</html>
